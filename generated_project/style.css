@@ -1,0 +1,140 @@
+/*
+    style.css – Calculator UI styling
+    Implements responsive layout, root variables, and component styles.
+*/
+
+/* 1. Root variables for colors, font sizes, and spacing */
+:root {
+    /* Colors */
+    --color-bg: #f0f4f8;               /* Light neutral background */
+    --color-primary: #2c7be5;          /* Primary accent (buttons) */
+    --color-primary-hover: #1a5bb8;    /* Darker on hover */
+    --color-clear: #e74c3c;            /* Clear button (red) */
+    --color-clear-hover: #c0392b;      /* Darker on hover */
+    --color-input-bg: #ffffff;         /* Input background */
+    --color-input-border: #ced4da;     /* Input border */
+    --color-result: #212529;           /* Result text */
+
+    /* Font sizes */
+    --font-base: 1rem;                 /* Base font size */
+    --font-large: 1.25rem;             /* Larger text (result) */
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+}
+
+/* 2. Body styling – center calculator, pleasant background, responsive font */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--color-bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: var(--font-base);
+    color: var(--color-result);
+}
+
+/* 3. Calculator container */
+.calculator {
+    background-color: var(--color-input-bg);
+    max-width: 400px;
+    width: 90%;
+    padding: var(--spacing-lg);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-sm);
+}
+
+/* 4. Input fields */
+.calc-input {
+    width: 100%;
+    padding: var(--spacing-sm);
+    font-size: 1rem;
+    border: 1px solid var(--color-input-border);
+    border-radius: 0.4rem;
+    box-sizing: border-box;
+    background-color: var(--color-input-bg);
+}
+
+/* 5. Buttons grid */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xs);
+}
+
+/* 6. Operator buttons */
+.op-btn {
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: 0.4rem;
+    padding: var(--spacing-sm);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.op-btn:hover {
+    background-color: var(--color-primary-hover);
+}
+
+/* Clear button – separate styling */
+.clear-btn {
+    background-color: var(--color-clear);
+    color: #fff;
+    border: none;
+    border-radius: 0.4rem;
+    padding: var(--spacing-sm);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: var(--spacing-sm);
+}
+
+.clear-btn:hover {
+    background-color: var(--color-clear-hover);
+}
+
+/* 7. Result styling */
+#result {
+    font-weight: 600;
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-large);
+    text-align: center;
+}
+
+#resultValue {
+    font-weight: 700;
+    margin-left: 0.25rem;
+}
+
+/* 8. Responsive adjustments for mobile */
+@media (max-width: 600px) {
+    body {
+        font-size: 0.9rem; /* Slightly smaller base font */
+    }
+
+    .calculator {
+        padding: var(--spacing-md);
+    }
+
+    .op-btn,
+    .clear-btn {
+        padding: var(--spacing-xs);
+        font-size: 0.9rem;
+    }
+
+    .buttons {
+        gap: 0.4rem;
+    }
+}
